@@ -1,4 +1,5 @@
 import { equipmentCollection, equipmentModel } from "../model/equipment.mongo";
+import { exerciseCollection, exerciseModel } from "../model/exercises.mongo";
 import mongoose from "mongoose";
 import 'dotenv/config'
 
@@ -15,4 +16,16 @@ async function uploadEquipmentCollection() {
   console.log("Successfully updated equipment collection to Mongo Atlas")
 }
 
+async function uploadExerciseCollection() {
+  for (const doc of exerciseCollection) {
+    await exerciseModel.updateOne({
+      muscle: doc.muscle
+    }, 
+    doc,
+    {upsert: true})
+  }
+  console.log("Successfully updated exercise collection to Mongo Atlas")
+}
+
 uploadEquipmentCollection()
+uploadExerciseCollection()
