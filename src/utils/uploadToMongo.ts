@@ -1,4 +1,4 @@
-import { equipmentCollection, equipmentModel } from "./data/equipment";
+import { equipmentCollection, equipmentModel } from "../model/equipment.mongo";
 import mongoose from "mongoose";
 import 'dotenv/config'
 
