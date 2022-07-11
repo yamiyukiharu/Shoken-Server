@@ -213,4 +213,4 @@ const equipmentDbSchema = new Schema<TEquipmentDoc>({
   equipment: Array<TEquipment>,
 })
 
-export const equipmentModel = model<TEquipmentDoc>('Equipment', equipmentDbSchema)
+export const equipmentModel = model<TEquipmentDoc>('equipment', equipmentDbSchema)
