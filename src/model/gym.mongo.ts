@@ -1,13 +1,15 @@
-import {Schema, model} from "mongoose";
-import { TEquipmentDoc } from "./equipment.mongo";
+import {Schema, model, Document} from "mongoose";
+import { TEquipment, TEquipmentCategories } from "./equipment.mongo";
 
-export type TGymDoc = {
+export interface TGymDoc extends Document {
   name: string;
   createdBy: string;
   address: string;
   size: number;
   images: string[];
-  equipment: Array<TEquipmentDoc>;
+  equipment: {
+    [key in TEquipmentCategories]?: Array<TEquipment>
+  }
 };
 
 const gymSchema = new Schema<TGymDoc>({
@@ -16,7 +18,7 @@ const gymSchema = new Schema<TGymDoc>({
   address: String,
   size: Number,
   images: Array<String>,
-  equipment: Array<TEquipmentDoc>
+  equipment: Map,
 })
 
-export const gymsModel = model<TGymDoc>('Gyms', gymSchema)
+export const gymModel = model<TGymDoc>('Gyms', gymSchema)
