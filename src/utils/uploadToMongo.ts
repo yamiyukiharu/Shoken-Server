@@ -1,5 +1,5 @@
 import { equipmentCollection, equipmentModel } from "../model/equipment.mongo";
-import { exerciseCollection, exerciseModel } from "../model/exercises.mongo";
+import { exerciseCollection, exerciseModel } from "../model/exercise.mongo";
 import mongoose from "mongoose";
 import 'dotenv/config'
 
