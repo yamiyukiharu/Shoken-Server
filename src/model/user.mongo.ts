@@ -69,7 +69,7 @@ export const userSchema = new Schema<TUserDoc>({
   savedGyms: Array<String>,
   savedWorkouts: Array<TWorkoutTemplate>,
   workoutHistory: Array<TWorkoutHistory>,
-  exerciseHistory: Map,
+  exerciseHistory: {},
   email: String,
   providerId: String,
 })

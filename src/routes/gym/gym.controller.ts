@@ -8,6 +8,6 @@ export async function httpGetAllGyms(req:Request, res:Response) {
 
 export async function httpUpsertGym(req:Request<{},{},TGym>, res:Response) {
   const gym:TGym = req.body
-  await upsertGym(gym)
-  return res.status(200).end()
+  const newGymDoc = await upsertGym(gym)
+  return res.status(200).json(newGymDoc)
 }
